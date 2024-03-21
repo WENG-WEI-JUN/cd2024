@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>網際內容管理系統 - w4</title><link href="./" rel="alternate"></link><link href="./feeds/w4.atom.xml" rel="self"></link><id>./</id><updated>2024-03-21T06:49:55+08:00</updated><entry><title>2024 Spring 課程 w4</title><link href="./2024-Spring-w4-blog-tutorial.html" rel="alternate"></link><published>2024-03-14T11:00:00+08:00</published><updated>2024-03-21T06:49:55+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-03-14:./2024-Spring-w4-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引.&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>網際內容管理系統 - w4</title><link href="./" rel="alternate"></link><link href="./feeds/w4.atom.xml" rel="self"></link><id>./</id><updated>2024-03-21T08:08:07+08:00</updated><entry><title>2024 Spring 課程 w4</title><link href="./2024-Spring-w4-blog-tutorial.html" rel="alternate"></link><published>2024-03-14T11:00:00+08:00</published><updated>2024-03-21T08:08:07+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-03-14:./2024-Spring-w4-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引，各組需要確定清楚的任務需求和分工時程。隨著協同設計流程的進行，分組倉儲和網站的改版變得越來越複雜。為了更好地管理這些改版歷程和本週的分組作業，我們可以導入SourceTree工具。這將有助於各組員更清楚地了解倉儲的改版歷程，並更有效地進行協作。&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引，各組需要確定清楚的任務需求和分工時程。隨著協同設計流程的進行，分組倉儲和網站的改版變得越來越複雜。為了更好地管理這些改版歷程和本週的分組作業，我們可以導入SourceTree工具。這將有助於各組員更清楚地了解倉儲的改版歷程，並更有效地進行協作。&lt;/p&gt;
 
 
-&lt;h1&gt;翻譯文章&lt;/h1&gt;
-&lt;p&gt;利用 ChatGPT 翻譯文章，將翻譯後的中文附在原文下方，以便閱讀。&lt;/p&gt;</content><category term="w4"></category><category term="網誌編寫"></category></entry></feed>
+&lt;h1&gt;分組任務&lt;/h1&gt;
+&lt;p&gt;各組員需要在個人的"cd2024"倉儲中使用LaTeX格式，完成文章的英文和中文翻譯並列資料。完成後，將最終的檔案放置於分組網站的Release或downloads區。&lt;/p&gt;</content><category term="w4"></category><category term="網誌編寫"></category></entry></feed>

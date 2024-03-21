@@ -4,12 +4,12 @@
 
 
 &lt;h1&gt;內容管理系統&lt;/h1&gt;
-&lt;p&gt;使用者可以自行利用 [cmsimde_site] 倉儲作為 Template, 建立自己的網站內容管理系統.&lt;/p&gt;</content><category term="w5"></category><category term="網誌編寫"></category></entry><entry><title>2024 Spring 課程 w4</title><link href="./2024-Spring-w4-blog-tutorial.html" rel="alternate"></link><published>2024-03-14T11:00:00+08:00</published><updated>2024-03-21T06:49:55+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-03-14:./2024-Spring-w4-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引.&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引.&lt;/p&gt;
+&lt;p&gt;使用者可以自行利用 [cmsimde_site] 倉儲作為 Template, 建立自己的網站內容管理系統.&lt;/p&gt;</content><category term="w5"></category><category term="網誌編寫"></category></entry><entry><title>2024 Spring 課程 w4</title><link href="./2024-Spring-w4-blog-tutorial.html" rel="alternate"></link><published>2024-03-14T11:00:00+08:00</published><updated>2024-03-21T08:08:07+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-03-14:./2024-Spring-w4-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引，各組需要確定清楚的任務需求和分工時程。隨著協同設計流程的進行，分組倉儲和網站的改版變得越來越複雜。為了更好地管理這些改版歷程和本週的分組作業，我們可以導入SourceTree工具。這將有助於各組員更清楚地了解倉儲的改版歷程，並更有效地進行協作。&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引，各組需要確定清楚的任務需求和分工時程。隨著協同設計流程的進行，分組倉儲和網站的改版變得越來越複雜。為了更好地管理這些改版歷程和本週的分組作業，我們可以導入SourceTree工具。這將有助於各組員更清楚地了解倉儲的改版歷程，並更有效地進行協作。&lt;/p&gt;
 
 
-&lt;h1&gt;翻譯文章&lt;/h1&gt;
-&lt;p&gt;利用 ChatGPT 翻譯文章，將翻譯後的中文附在原文下方，以便閱讀。&lt;/p&gt;</content><category term="w4"></category><category term="網誌編寫"></category></entry><entry><title>2024 Spring 課程 w3</title><link href="./2024-Spring-w3-blog-tutorial.html" rel="alternate"></link><published>2024-03-07T11:00:00+08:00</published><updated>2024-03-21T06:54:44+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-03-07:./2024-Spring-w3-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引.&lt;/p&gt;
+&lt;h1&gt;分組任務&lt;/h1&gt;
+&lt;p&gt;各組員需要在個人的"cd2024"倉儲中使用LaTeX格式，完成文章的英文和中文翻譯並列資料。完成後，將最終的檔案放置於分組網站的Release或downloads區。&lt;/p&gt;</content><category term="w4"></category><category term="網誌編寫"></category></entry><entry><title>2024 Spring 課程 w3</title><link href="./2024-Spring-w3-blog-tutorial.html" rel="alternate"></link><published>2024-03-07T11:00:00+08:00</published><updated>2024-03-21T06:54:44+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-03-07:./2024-Spring-w3-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引.&lt;/p&gt;
 
 
@@ -19,17 +19,16 @@
 
 
 &lt;h1&gt;分組倉儲&lt;/h1&gt;
-&lt;p&gt;由組長建立團隊並創建團隊倉儲，利用 codespaces 維護分組網站&lt;/p&gt;</content><category term="w2"></category><category term="網誌編寫"></category></entry><entry><title>2024 Spring 課程 w1</title><link href="./2024-Spring-w1-blog-tutorial.html" rel="alternate"></link><published>2024-02-22T11:00:00+08:00</published><updated>2024-03-21T06:49:37+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-02-22:./2024-Spring-w1-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引.&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引.&lt;/p&gt;
+&lt;p&gt;由組長建立團隊並創建團隊倉儲，利用 codespaces 維護分組網站&lt;/p&gt;</content><category term="w2"></category><category term="網誌編寫"></category></entry><entry><title>2024 Spring 課程 w1</title><link href="./2024-Spring-w1-blog-tutorial.html" rel="alternate"></link><published>2024-02-22T11:00:00+08:00</published><updated>2024-03-21T08:02:10+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-02-22:./2024-Spring-w1-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引，首先建立倉儲，再以Replit進行修改，接著在Replit建立網誌，記錄每周的進度，應用Odoo PLM管理機械設計流程.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引，首先建立倉儲，再以Replit進行修改，接著在Replit建立網誌，記錄每周的進度，應用Odoo PLM管理機械設計流程.&lt;/p&gt;
 
 
-&lt;h1&gt;內容管理系統&lt;/h1&gt;
-&lt;p&gt;使用者可以自行利用 [cmsimde_site] 倉儲作為 Template, 建立自己的網站內容管理系統.&lt;/p&gt;</content><category term="w1"></category><category term="網誌編寫"></category></entry><entry><title>2024 Spring 課程 w6</title><link href="./2024-Spring-w6-blog-tutorial.html" rel="alternate"></link><published>2024-02-18T11:00:00+08:00</published><updated>2024-03-21T07:07:50+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-02-18:./2024-Spring-w6-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引.&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引.&lt;/p&gt;
-
-
-&lt;h1&gt;內容管理系統&lt;/h1&gt;
-&lt;p&gt;使用者可以自行利用 &lt;a href="https://github.com/mdecycu/cmsimde_site"&gt;cmsimde_site&lt;/a&gt; 倉儲作為 Template, 建立自己的網站內容管理系統.&lt;/p&gt;
+&lt;h1&gt;創建個人課程倉儲&lt;/h1&gt;
+&lt;p&gt;登入至自己的 GitHub 帳號後，點擊此連結[ https://github.com/mdecycu/cmsimde_site ]，或者在Teams中找到此連結。使用Template建立一個新倉儲，並命名為"cd2024"。在倉儲設定中的 pages 設定中，將 main 分支設為網頁根目錄，這樣網頁就能正常運行了.&lt;/p&gt;
+&lt;h1&gt;將倉儲 import 至 Replit&lt;/h1&gt;
+&lt;p&gt;在Replit帳號的設定中，找到Connected Services(連線服務)並連接GitHub，這樣就可以在Replit中進行改版，並且有權限將修改後的內容推回自己的網站.&lt;/p&gt;
+&lt;h1&gt;import 完如何進行改版&lt;/h1&gt;
+&lt;p&gt;import完成後，動態網站就會顯示出來。點擊進入後，輸入"admin"就可以輕鬆增加或修改想要的內容，完成後，在右上角點擊"Convert"將內容轉為靜態。然後，在Replit的Git中提交新增的內容，然後Push，稍等片刻後，就可以在靜態網站上看到剛剛新增的內容.&lt;/p&gt;
 &lt;p&gt;引用網站網址連結的方法:&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://github.com/mdecycu/cmsimde_site"&gt;cmsimde_site&lt;/a&gt; - 在文章中多次引用同一個網站連結時, 可以使用此種方法.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://github.com/mdecycu/cmsimde_site"&gt;https://github.com/mdecycu/cmsimde_site&lt;/a&gt; - 假如想要快速將網址套用 html 網站連結, 可以使用此種方法.&lt;/p&gt;
@@ -288,4 +287,4 @@ doc["threejsblock"].bind("click", threejsblock.do)
 &lt;div id="brython_div2"&gt;&lt;/div&gt;
 &lt;!-- editor2 結束 --&gt;
 &lt;hr/&gt;&lt;p&gt;
-&lt;script src="https://unpkg.com/three@0.144.0/build/three.js" type="text/javascript"&gt;&lt;/script&gt;</content><category term="w6"></category><category term="網誌編寫"></category></entry></feed>
+&lt;script src="https://unpkg.com/three@0.144.0/build/three.js" type="text/javascript"&gt;&lt;/script&gt;</content><category term="w1"></category><category term="網誌編寫"></category></entry></feed>
