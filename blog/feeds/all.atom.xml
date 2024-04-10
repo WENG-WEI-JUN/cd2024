@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>網際內容管理系統</title><link href="./" rel="alternate"></link><link href="./feeds/all.atom.xml" rel="self"></link><id>./</id><updated>2024-04-10T14:04:50+08:00</updated><entry><title>2024 Spring 課程 w6</title><link href="./2024-Spring-w6-blog-tutorial.html" rel="alternate"></link><published>2024-03-28T11:00:00+08:00</published><updated>2024-04-10T14:04:50+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-03-28:./2024-Spring-w6-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引,說明協同 NX 零組件繪圖以及 CoppeliaSim 場景模擬相關檔案格式.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>網際內容管理系統</title><link href="./" rel="alternate"></link><link href="./feeds/all.atom.xml" rel="self"></link><id>./</id><updated>2024-04-10T14:14:20+08:00</updated><entry><title>2024 Spring 課程 w6</title><link href="./2024-Spring-w6-blog-tutorial.html" rel="alternate"></link><published>2024-03-28T11:00:00+08:00</published><updated>2024-04-10T14:14:20+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-03-28:./2024-Spring-w6-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引,說明協同 NX 零組件繪圖以及 CoppeliaSim 場景模擬相關檔案格式.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引,說明協同 NX 零組件繪圖以及 CoppeliaSim 場景模擬相關檔案格式.&lt;/p&gt;
 
 
 &lt;h1&gt;ODOO PLM 論文中英並列任務&lt;/h1&gt;
 &lt;p&gt;每個組員都需要在其個人的 cd2024 倉儲中以 LaTeX 格式完成下列文章的英文與中文翻譯,最後組員需要在分組網站的 Release 或 downloads 區域完成製作 2b-midbgx_report.pdf&lt;/p&gt;
 &lt;p&gt;若您想在本地環境中使用可攜式程式編譯分組 LaTeX 報告，請下載以下兩個檔案：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;a href="http://229.cycu.org/miktex-portable.7z"&gt;miktex-portable.7z&lt;/a&gt;（大小約 167MB，解壓縮後約 1GB，需要密碼）&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;1.&lt;a href="http://229.cycu.org/miktex-portable.7z"&gt;miktex-portable.7z&lt;/a&gt;（大小約 167MB，解壓縮後約 1GB，需要密碼）&lt;/p&gt;
 &lt;p&gt;2.參考資料： &lt;a href="http://229.cycu.org/latex_images_github.7z"&gt;latex_images_github.7z&lt;/a&gt;（需要密碼）&lt;/p&gt;
 &lt;p&gt;這兩個檔案將提供您在本地編譯 LaTeX 文件所需的環境和資源。&lt;/p&gt;
 &lt;h1&gt;CoppeliaSim 檔案格式&lt;/h1&gt;
