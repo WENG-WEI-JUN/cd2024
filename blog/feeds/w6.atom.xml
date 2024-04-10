@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>網際內容管理系統 - w6</title><link href="./" rel="alternate"></link><link href="./feeds/w6.atom.xml" rel="self"></link><id>./</id><updated>2024-04-10T13:59:14+08:00</updated><entry><title>2024 Spring 課程 w6</title><link href="./2024-Spring-w6-blog-tutorial.html" rel="alternate"></link><published>2024-03-28T11:00:00+08:00</published><updated>2024-04-10T13:59:14+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-03-28:./2024-Spring-w6-blog-tutorial.html</id><summary type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引,說明協同 NX 零組件繪圖以及 CoppeliaSim 場景模擬相關檔案格式.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引,說明協同 NX 零組件繪圖以及 CoppeliaSim 場景模擬相關檔案格式.&lt;/p&gt;
+
+
+&lt;h1&gt;ODOO PLM 論文中英並列任務&lt;/h1&gt;
+&lt;p&gt;每個組員都需要在其個人的 cd2024 倉儲中以 LaTeX 格式完成下列文章的英文與中文翻譯,最後組員需要在分組網站的 Release 或 downloads 區域完成製作 2b-midbgx_report.pdf&lt;/p&gt;
+&lt;p&gt;若您想在本地環境中使用可攜式程式編譯分組 LaTeX 報告，請下載以下兩個檔案：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="http://229.cycu.org/miktex-portable.7z"&gt;miktex-portable.7z&lt;/a&gt;（大小約 167MB，解壓縮後約 1GB，需要密碼）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;2.參考資料： &lt;a href="http://229.cycu.org/latex_images_github.7z"&gt;latex_images_github.7z&lt;/a&gt;（需要密碼）&lt;/p&gt;
+&lt;p&gt;這兩個檔案將提供您在本地編譯 LaTeX 文件所需的環境和資源。&lt;/p&gt;
+&lt;h1&gt;CoppeliaSim 檔案格式&lt;/h1&gt;
+&lt;p&gt;請下載 &lt;a href="https://mde.tw/cd2024/downloads/copsim_midterm_cube2_xml.7z"&gt;copsim_midterm_cube2_xml.7z&lt;/a&gt; 檔案。&lt;/p&gt;
+&lt;p&gt;1.CoppeliaSim 目前提供二進位與 XML 格式的場景檔案。XML 格式的場景檔案支援單一檔案或多個模型與影像檔案的儲存。&lt;/p&gt;
+&lt;p&gt;2.從 4.5.1 版本開始，設定資料不再存儲在套件目錄中，而是存放在操作系統的 AppData/Roaming 目錄中。&lt;/p&gt;
+&lt;p&gt;3.在 4.5.1 版本時，儲存為多 XML 檔案格式時，無法帶出場景中的 png 圖檔，此一問題在 4.6.0 版本之後才得到修正。&lt;/p&gt;
+&lt;p&gt;4.目前僅修改至 4.5.1 版本的 CoppeliaSim 支援 IPv4 與 IPv6 網際場景模擬。&lt;/p&gt;
+&lt;p&gt;5.XML 格式的檔案具有廣泛的應用，協同產品設計過程可能需要使用程式方法來處理從零組件與模擬場景互相轉換取得的 XML 格式檔案。&lt;/p&gt;
+&lt;h1&gt;ODOO, NX, Sourcetree, Github and Replit&lt;/h1&gt;
+&lt;p&gt;建立協同產品開發環境的配置需要以下步驟：&lt;/p&gt;
+&lt;p&gt;1.下載 &lt;a href="https://nfuedu-my.sharepoint.com/personal/yen_nfu_edu_tw/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fyen%5Fnfu%5Fedu%5Ftw%2FDocuments%2F2024%2Fcd2024%2FSiemens%5FNX1872%2E7z&amp;parent=%2Fpersonal%2Fyen%5Fnfu%5Fedu%5Ftw%2FDocuments%2F2024%2Fcd2024&amp;ga=1"&gt;Siemens NX1872&lt;/a&gt; 軟體。cd2024 學生可以選擇在電腦上安裝 NX1872 或者從隨身碟中運行 NX1872。&lt;/p&gt;
+&lt;p&gt;2.下載 &lt;a href="http://229.cycu.org/SourceTree_portable.7z"&gt;Sourcetree_portable.7z&lt;/a&gt;。這需要密碼才能解壓縮。&lt;/p&gt;
+&lt;p&gt;3.下載其他工具，包括 CoppeliaSim、SciTE、Portablegit、Putty、Zoomit、Python、Solvespace和Process Explorer等。&lt;/p&gt;
+&lt;p&gt;4.下載 &lt;a href="https://mde.tw/cd2024/downloads/Solvespace_model%20_2d_for_cd2024_w6.7z"&gt;Solvespace_model_2d_for_cd2024_w6.7z&lt;/a&gt;。
+配置重點在於將 NX、Sourcetree 和 CoppeliaSim 的設定檔案與管理分組倉儲的權限存儲至可攜系統。並且需要從可攜系統啟動後的命令列中啟動這些應用程式。&lt;/p&gt;</content><category term="w6"></category><category term="網誌編寫"></category></entry></feed>

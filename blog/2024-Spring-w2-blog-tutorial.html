@@ -42,7 +42,7 @@
 
     <link href="./2024-Spring-w2-blog-tutorial.html" rel="canonical" />
 
-        <meta name="description" content="2024 Spring 網際內容管理與協同產品設計實習課程教學導引，將使用 Github Classroom 進行協同分組。除了 Replit 之外，我們還將引導學員使用 Github Codespaces 來維護個人或分組的網站內容。">
+        <meta name="description" content="2024 Spring 網際內容管理與協同產品設計實習課程教學導引，將使用 Github Classroom 進行協同分組。除了 Replit 之外，我們還將引導學員使用 Github Codespaces 來維護個人或分組的網站內容.">
 
         <meta name="author" content="kmol">
 
@@ -54,12 +54,12 @@
 <!-- Open Graph -->
 <meta property="og:site_name" content="網際內容管理系統"/>
 <meta property="og:title" content="2024 Spring 課程 w2"/>
-<meta property="og:description" content="2024 Spring 網際內容管理與協同產品設計實習課程教學導引，將使用 Github Classroom 進行協同分組。除了 Replit 之外，我們還將引導學員使用 Github Codespaces 來維護個人或分組的網站內容。"/>
+<meta property="og:description" content="2024 Spring 網際內容管理與協同產品設計實習課程教學導引，將使用 Github Classroom 進行協同分組。除了 Replit 之外，我們還將引導學員使用 Github Codespaces 來維護個人或分組的網站內容."/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="./2024-Spring-w2-blog-tutorial.html"/>
 <meta property="og:type" content="article"/>
 <meta property="article:published_time" content="2024-02-29 11:00:00+08:00"/>
-<meta property="article:modified_time" content="2024-03-28 06:53:50.704110+08:00"/>
+<meta property="article:modified_time" content="2024-04-10 13:16:20.125957+08:00"/>
 <meta property="article:author" content="./author/kmol.html">
 <meta property="article:section" content="w2"/>
 <meta property="article:tag" content="網誌編寫"/>
@@ -74,7 +74,7 @@
   "name": "2024 Spring 課程 w2",
   "headline": "2024 Spring 課程 w2",
   "datePublished": "2024-02-29 11:00:00+08:00",
-  "dateModified": "2024-03-28 06:53:50.704110+08:00",
+  "dateModified": "2024-04-10 13:16:20.125957+08:00",
   "author": {
     "@type": "Person",
     "name": "kmol",
@@ -82,7 +82,7 @@
   },
   "image": "./theme/images/post-bg.jpg",
   "url": "./2024-Spring-w2-blog-tutorial.html",
-  "description": "2024 Spring 網際內容管理與協同產品設計實習課程教學導引，將使用 Github Classroom 進行協同分組。除了 Replit 之外，我們還將引導學員使用 Github Codespaces 來維護個人或分組的網站內容。"
+  "description": "2024 Spring 網際內容管理與協同產品設計實習課程教學導引，將使用 Github Classroom 進行協同分組。除了 Replit 之外，我們還將引導學員使用 Github Codespaces 來維護個人或分組的網站內容."
 }
 </script>
 <script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shCore.js"></script>
@@ -211,7 +211,7 @@ init_mathjax();
             | <time datetime="Thu 29 February 2024">Thu 29 February 2024</time>
         </span>
         <!-- TODO : Modified check -->
-            <span class="post-meta"> | Updated on Thu 28 March 2024</span>
+            <span class="post-meta"> | Updated on Wed 10 April 2024</span>
             <div class="post-cover cover" style="background-image: url('./theme/images/post-bg.jpg')">
       </div>
     </header>
@@ -231,23 +231,23 @@ init_mathjax();
         <article class="post">
         <div class="inner">
             <section class="post-content">
-                <p>2024 Spring 網際內容管理與協同產品設計實習課程教學導引，將使用 Github Classroom 進行協同分組。除了 Replit 之外，我們還將引導學員使用 Github Codespaces 來維護個人或分組的網站內容。</p>
+                <p>2024 Spring 網際內容管理與協同產品設計實習課程教學導引，將使用 Github Classroom 進行協同分組。除了 Replit 之外，我們還將引導學員使用 Github Codespaces 來維護個人或分組的網站內容.</p>
 
 
 <h1>利用 Github Classroom 指定分組倉儲</h1>
-<p>在使用 Github Classroom 指定分組倉庫時，倉庫位於 mdecd2024 帳戶下。雖然每個組員對該分組倉庫有修改權限，但在將分組倉庫導入 Replit 時，由於倉庫擁有者是 mdecd2024，因此無法在 Replit 帳戶下進行授權。解決這個問題的方法是創建一個新的 Replit，點擊 "Create a Repl"，然後選擇 "Import from GitHub"，使用 "From URL" 將組別倉庫的連結輸入。然後選擇 Python 語言，點擊 "Import from GitHub" 來成功建立。接下來，您可以使用 ssh-keygen 命令在 .ssh 目錄下創建 id_rsa 和 id_rsa.pub。每個人都需要建立一個並將公鑰添加到其 GitHub 帳戶中。然後，您需要在 .ssh 目錄中創建 config 文件，將倉庫的 .git/config 中的 https 協議改為 SSH（git@github.com:your_account/cd2024.git）。通過這樣的配置，您可以在 Replit 中以 SSH 模式獲取對 GitHub 帳戶下特定倉庫的修改權限。但是，由於 Replit 的免費帳戶環境會不定期刪除 /home/runner/.ssh 目錄中的授權資料，因此如果要使用 Replit 維護從 GitHub Classroom 獲取授權的分組倉庫，就需要使用程式方法來配置 .ssh 中的 id_rsa 和 config 文件。</p>
+<p>在使用 Github Classroom 指定分組倉庫時，倉庫位於 mdecd2024 帳戶下。雖然每個組員對該分組倉庫有修改權限，但在將分組倉庫導入 Replit 時，由於倉庫擁有者是 mdecd2024，因此無法在 Replit 帳戶下進行授權。解決這個問題的方法是創建一個新的 Replit，點擊 "Create a Repl"，然後選擇 "Import from GitHub"，使用 "From URL" 將組別倉庫的連結輸入。然後選擇 Python 語言，點擊 "Import from GitHub" 來成功建立。接下來，您可以使用 ssh-keygen 命令在 .ssh 目錄下創建 id_rsa 和 id_rsa.pub。每個人都需要建立一個並將公鑰添加到其 GitHub 帳戶中。然後，您需要在 .ssh 目錄中創建 config 文件，將倉庫的 .git/config 中的 https 協議改為 SSH（git@github.com:your_account/cd2024.git）。通過這樣的配置，您可以在 Replit 中以 SSH 模式獲取對 GitHub 帳戶下特定倉庫的修改權限。但是，由於 Replit 的免費帳戶環境會不定期刪除 /home/runner/.ssh 目錄中的授權資料，因此如果要使用 Replit 維護從 GitHub Classroom 獲取授權的分組倉庫，就需要使用程式方法來配置 .ssh 中的 id_rsa 和 config 文件.</p>
 <h1>利用 Codespaces 維護倉儲與網站</h1>
 <p>安裝所需的 Python 模組使用 init_replit 指令。</p>
-<p>動態指令：
-1.使用 chmod u+x init_replit 設置權限。
-2.執行 ./init_replit。
-3.啟動程式，使用 Python3 main.py。</p>
-<p>靜態指令：
-1.使用 Python3 -m http.server。</p>
-<p>推送指令：
-1.加入所有變更，使用 git add .。
-2.做出提交，使用 git commit -m "新增: 你要推送的內容"。
-3.推送至遠端儲存庫，使用 git push。</p>
+<p>動態指令：</p>
+<p>1.使用 chmod u+x init_replit 設置權限。</p>
+<p>2.執行 ./init_replit。</p>
+<p>3.啟動程式，使用 Python3 main.py。</p>
+<p>靜態指令：</p>
+<p>1.使用 Python3 -m http.server。</p>
+<p>推送指令：</p>
+<p>1.加入所有變更，使用 git add .。</p>
+<p>2.做出提交，使用 git commit -m "新增: 你要推送的內容"。</p>
+<p>3.推送至遠端儲存庫，使用 git push。</p>
             </section>
 
             <section class="post-info">
@@ -265,7 +265,7 @@ init_mathjax();
                         <section class="post-nav-teaser">
                             <i class="ic ic-arrow-left"></i>
                                 <h2 class="post-nav-title">2024 Spring 課程 w3</h2>
-                            <p class="post-nav-excerpt">2024 Spring 網際內容管理與協同產品設計實習課程教學導引.</p>
+                            <p class="post-nav-excerpt">2024 Spring 網際內容管理與協同產品設計實習課程教學導引,這一週的主要目標是有效地利用 Github Codespaces 與...</p>
                         </section>
                     </a>
                     <a class="post-nav-prev" href="./2024-Spring-w1-blog-tutorial.html">

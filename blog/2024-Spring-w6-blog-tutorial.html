@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 
-  <title>網際內容管理系統 - Authors</title>
+  <title>2024 Spring 課程 w6</title>
 
 
   <meta name="HandheldFriendly" content="True" />
@@ -18,6 +18,7 @@
 
   <!-- Feed -->
         <link href="./feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="網際內容管理系統 Full Atom Feed" />
+          <link href="./feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="網際內容管理系統 Categories Atom Feed" />
 
   <link href="./theme/css/style.css" type="text/css" rel="stylesheet" />
 
@@ -39,27 +40,49 @@
   <![endif]-->
 
 
+    <link href="./2024-Spring-w6-blog-tutorial.html" rel="canonical" />
+
+        <meta name="description" content="2024 Spring 網際內容管理與協同產品設計實習課程教學導引,說明協同 NX 零組件繪圖以及 CoppeliaSim 場景模擬相關檔案格式.">
+
+        <meta name="author" content="kmol">
+
+        <meta name="tags" content="網誌編寫">
+
+
 
 
 <!-- Open Graph -->
 <meta property="og:site_name" content="網際內容管理系統"/>
-<meta property="og:type" content="blog"/>
-<meta property="og:title" content="網際內容管理系統"/>
-<meta property="og:description" content="View the blog."/>
+<meta property="og:title" content="2024 Spring 課程 w6"/>
+<meta property="og:description" content="2024 Spring 網際內容管理與協同產品設計實習課程教學導引,說明協同 NX 零組件繪圖以及 CoppeliaSim 場景模擬相關檔案格式."/>
 <meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="./"/>
-<meta property="og:image" content="./theme/images/home-bg.jpg">
+<meta property="og:url" content="./2024-Spring-w6-blog-tutorial.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2024-03-28 11:00:00+08:00"/>
+<meta property="article:modified_time" content="2024-04-10 13:59:14.821044+08:00"/>
+<meta property="article:author" content="./author/kmol.html">
+<meta property="article:section" content="w6"/>
+<meta property="article:tag" content="網誌編寫"/>
+<meta property="og:image" content="./theme/images/post-bg.jpg">
 
 <!-- Twitter Card -->
 
 <script type="application/ld+json">
 {
-  "@context" : "http://schema.org",
-  "@type" : "Website",
-  "name": " 網際內容管理系統 ",
-  "url" : "./",
-  "image": "./theme/images/home-bg.jpg",
-  "description": "View the blog."
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "name": "2024 Spring 課程 w6",
+  "headline": "2024 Spring 課程 w6",
+  "datePublished": "2024-03-28 11:00:00+08:00",
+  "dateModified": "2024-04-10 13:59:14.821044+08:00",
+  "author": {
+    "@type": "Person",
+    "name": "kmol",
+    "url": "./author/kmol.html"
+  },
+  "image": "./theme/images/post-bg.jpg",
+  "url": "./2024-Spring-w6-blog-tutorial.html",
+  "description": "2024 Spring 網際內容管理與協同產品設計實習課程教學導引,說明協同 NX 零組件繪圖以及 CoppeliaSim 場景模擬相關檔案格式."
 }
 </script>
 <script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shCore.js"></script>
@@ -164,19 +187,31 @@ init_mathjax();
     </ul>
   </div>
 </nav>
+    <!-- Progressbar -->
+    <div class="progress-container">
+        <span class="progress-bar"></span>
+    </div>
+
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header id="blog-header" class="has-cover">
+    <header id="post-header" class="has-cover">
       <div class="inner">
         <nav id="navigation">
             <span id="home-button" class="nav-button">
-                <a class="home-button" href="./" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
+                <a class="home-button" href="./index.html" title="Home"><i class="ic ic-arrow-left"></i> Home</a>
             </span>
           <span id="menu-button" class="nav-button">
             <a class="menu-button"><i class="ic ic-menu"></i> Menu</a>
           </span>
         </nav>
-        <h1 class="post-title">Articles by </h1>
+        <h1 class="post-title">2024 Spring 課程 w6</h1>
+        <!-- TODO : Proper class for headline -->
+        <span class="post-meta">
+                <a href="./author/kmol.html">Kmol</a>
+            | <time datetime="Thu 28 March 2024">Thu 28 March 2024</time>
+        </span>
+        <!-- TODO : Modified check -->
+            <span class="post-meta"> | Updated on Wed 10 April 2024</span>
             <div class="post-cover cover" style="background-image: url('./theme/images/post-bg.jpg')">
       </div>
     </header>
@@ -190,15 +225,63 @@ init_mathjax();
     </form>
 </section>
 
-      <article class="post">
+
+    <!-- Post content -->
+    <main class="content" role="main">
+        <article class="post">
         <div class="inner">
-            <a href="./author/kmol.html" rel="bookmark">
-                <h2 class="post-title">
-                    kmol (6)
-                </h2>
-            </a>
-        </div>
-      </article>
+            <section class="post-content">
+                <p>2024 Spring 網際內容管理與協同產品設計實習課程教學導引,說明協同 NX 零組件繪圖以及 CoppeliaSim 場景模擬相關檔案格式.</p>
+
+
+<h1>ODOO PLM 論文中英並列任務</h1>
+<p>每個組員都需要在其個人的 cd2024 倉儲中以 LaTeX 格式完成下列文章的英文與中文翻譯,最後組員需要在分組網站的 Release 或 downloads 區域完成製作 2b-midbgx_report.pdf</p>
+<p>若您想在本地環境中使用可攜式程式編譯分組 LaTeX 報告，請下載以下兩個檔案：</p>
+<ol>
+<li><a href="http://229.cycu.org/miktex-portable.7z">miktex-portable.7z</a>（大小約 167MB，解壓縮後約 1GB，需要密碼）</li>
+</ol>
+<p>2.參考資料： <a href="http://229.cycu.org/latex_images_github.7z">latex_images_github.7z</a>（需要密碼）</p>
+<p>這兩個檔案將提供您在本地編譯 LaTeX 文件所需的環境和資源。</p>
+<h1>CoppeliaSim 檔案格式</h1>
+<p>請下載 <a href="https://mde.tw/cd2024/downloads/copsim_midterm_cube2_xml.7z">copsim_midterm_cube2_xml.7z</a> 檔案。</p>
+<p>1.CoppeliaSim 目前提供二進位與 XML 格式的場景檔案。XML 格式的場景檔案支援單一檔案或多個模型與影像檔案的儲存。</p>
+<p>2.從 4.5.1 版本開始，設定資料不再存儲在套件目錄中，而是存放在操作系統的 AppData/Roaming 目錄中。</p>
+<p>3.在 4.5.1 版本時，儲存為多 XML 檔案格式時，無法帶出場景中的 png 圖檔，此一問題在 4.6.0 版本之後才得到修正。</p>
+<p>4.目前僅修改至 4.5.1 版本的 CoppeliaSim 支援 IPv4 與 IPv6 網際場景模擬。</p>
+<p>5.XML 格式的檔案具有廣泛的應用，協同產品設計過程可能需要使用程式方法來處理從零組件與模擬場景互相轉換取得的 XML 格式檔案。</p>
+<h1>ODOO, NX, Sourcetree, Github and Replit</h1>
+<p>建立協同產品開發環境的配置需要以下步驟：</p>
+<p>1.下載 <a href="https://nfuedu-my.sharepoint.com/personal/yen_nfu_edu_tw/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fyen%5Fnfu%5Fedu%5Ftw%2FDocuments%2F2024%2Fcd2024%2FSiemens%5FNX1872%2E7z&parent=%2Fpersonal%2Fyen%5Fnfu%5Fedu%5Ftw%2FDocuments%2F2024%2Fcd2024&ga=1">Siemens NX1872</a> 軟體。cd2024 學生可以選擇在電腦上安裝 NX1872 或者從隨身碟中運行 NX1872。</p>
+<p>2.下載 <a href="http://229.cycu.org/SourceTree_portable.7z">Sourcetree_portable.7z</a>。這需要密碼才能解壓縮。</p>
+<p>3.下載其他工具，包括 CoppeliaSim、SciTE、Portablegit、Putty、Zoomit、Python、Solvespace和Process Explorer等。</p>
+<p>4.下載 <a href="https://mde.tw/cd2024/downloads/Solvespace_model%20_2d_for_cd2024_w6.7z">Solvespace_model_2d_for_cd2024_w6.7z</a>。
+配置重點在於將 NX、Sourcetree 和 CoppeliaSim 的設定檔案與管理分組倉儲的權限存儲至可攜系統。並且需要從可攜系統啟動後的命令列中啟動這些應用程式。</p>
+            </section>
+
+            <section class="post-info">
+                <aside class="post-tags">
+<a href="./tag/wang-zhi-bian-xie.html">網誌編寫</a>                </aside>
+
+                <div class="clear"></div>
+
+
+                </section>
+
+
+                <aside class="post-nav">
+                    <a class="post-nav-prev" href="./2024-Spring-w5-blog-tutorial.html">
+                        <section class="post-nav-teaser">
+                            <i class="ic ic-arrow-right"></i>
+                                <h2 class="post-nav-title">2024 Spring 課程 w5</h2>
+                            <p class="post-nav-excerpt">2024 Spring 網際內容管理與協同產品設計實習課程教學導引,教學內容為先前影片整理、分組網誌的統整.</p>
+                        </section>
+                    </a>
+                    <div class="clear"></div>
+                </aside>
+
+            </div>
+        </article>
+    </main>
       <!-- TODO : Body class -->
     <div id="body-class" style="display: none;" class=""></div>
 

@@ -42,7 +42,7 @@
 
     <link href="./2024-Spring-w3-blog-tutorial.html" rel="canonical" />
 
-        <meta name="description" content="2024 Spring 網際內容管理與協同產品設計實習課程教學導引.">
+        <meta name="description" content="2024 Spring 網際內容管理與協同產品設計實習課程教學導引,這一週的主要目標是有效地利用 Github Codespaces 與 Gitpod,並且將組員的倉儲設定為分組倉儲的子模組。同時也引入 LaTeX 轉換為 PDF 的機制,為期中分組報告的製作做好準備.">
 
         <meta name="author" content="kmol">
 
@@ -54,12 +54,12 @@
 <!-- Open Graph -->
 <meta property="og:site_name" content="網際內容管理系統"/>
 <meta property="og:title" content="2024 Spring 課程 w3"/>
-<meta property="og:description" content="2024 Spring 網際內容管理與協同產品設計實習課程教學導引."/>
+<meta property="og:description" content="2024 Spring 網際內容管理與協同產品設計實習課程教學導引,這一週的主要目標是有效地利用 Github Codespaces 與 Gitpod,並且將組員的倉儲設定為分組倉儲的子模組。同時也引入 LaTeX 轉換為 PDF 的機制,為期中分組報告的製作做好準備."/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="./2024-Spring-w3-blog-tutorial.html"/>
 <meta property="og:type" content="article"/>
 <meta property="article:published_time" content="2024-03-07 11:00:00+08:00"/>
-<meta property="article:modified_time" content="2024-03-21 06:54:44.192096+08:00"/>
+<meta property="article:modified_time" content="2024-04-10 13:41:27.404850+08:00"/>
 <meta property="article:author" content="./author/kmol.html">
 <meta property="article:section" content="w3"/>
 <meta property="article:tag" content="網誌編寫"/>
@@ -74,7 +74,7 @@
   "name": "2024 Spring 課程 w3",
   "headline": "2024 Spring 課程 w3",
   "datePublished": "2024-03-07 11:00:00+08:00",
-  "dateModified": "2024-03-21 06:54:44.192096+08:00",
+  "dateModified": "2024-04-10 13:41:27.404850+08:00",
   "author": {
     "@type": "Person",
     "name": "kmol",
@@ -82,7 +82,7 @@
   },
   "image": "./theme/images/post-bg.jpg",
   "url": "./2024-Spring-w3-blog-tutorial.html",
-  "description": "2024 Spring 網際內容管理與協同產品設計實習課程教學導引."
+  "description": "2024 Spring 網際內容管理與協同產品設計實習課程教學導引,這一週的主要目標是有效地利用 Github Codespaces 與 Gitpod,並且將組員的倉儲設定為分組倉儲的子模組。同時也引入 LaTeX 轉換為 PDF 的機制,為期中分組報告的製作做好準備."
 }
 </script>
 <script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shCore.js"></script>
@@ -211,7 +211,7 @@ init_mathjax();
             | <time datetime="Thu 07 March 2024">Thu 07 March 2024</time>
         </span>
         <!-- TODO : Modified check -->
-            <span class="post-meta"> | Updated on Thu 21 March 2024</span>
+            <span class="post-meta"> | Updated on Wed 10 April 2024</span>
             <div class="post-cover cover" style="background-image: url('./theme/images/post-bg.jpg')">
       </div>
     </header>
@@ -231,11 +231,20 @@ init_mathjax();
         <article class="post">
         <div class="inner">
             <section class="post-content">
-                <p>2024 Spring 網際內容管理與協同產品設計實習課程教學導引.</p>
+                <p>2024 Spring 網際內容管理與協同產品設計實習課程教學導引,這一週的主要目標是有效地利用 Github Codespaces 與 Gitpod,並且將組員的倉儲設定為分組倉儲的子模組。同時也引入 LaTeX 轉換為 PDF 的機制,為期中分組報告的製作做好準備.</p>
 
 
-<h1>內容管理系統</h1>
-<p>使用者可以自行利用 [cmsimde_site] 倉儲作為 Template, 建立自己的網站內容管理系統../</p>
+<h1>子模組</h1>
+<p>使用 Github Codespaces 建立與管理您的課程倉儲。在課程倉儲中,透過以下步驟將各組員的個人網站作為 submodule 納入分組倉儲：</p>
+<p>1.首先,使用 git submodule add 命令將組員的個人網站作為 submodule 加入到您的分組倉儲中。例如：git submodule add &lt;組員個人網站的 URL&gt; &lt;組員學號&gt;</p>
+<p>2.然後,執行 git add . 將變更加入暫存區。</p>
+<p>3.接著,使用 git commit -m "add 學號 submodule" 提交變更。</p>
+<p>4.最後,使用 git push 將變更推送到遠端倉儲中。</p>
+<p>這樣一來,分組倉儲就會包含各組員的個人網站作為 submodule，並且能夠在 Github Codespaces 中方便地進行管理和編輯。</p>
+<h1>有關 Codespaces 使用</h1>
+<p>考慮到 Github Codespaces 免費帳戶每月只有 120 個小時的限制,使用者可以在需要時選擇在 Github 倉儲中編輯 Markdown 目錄中的網誌文章。當需要使用 Pelican 轉換檔案或編輯 config/content.htm 以及轉換靜態網頁內容時,才啟動 Codespaces。這樣可以最大程度地優化 Codespaces 免費核心小時的使用.</p>
+<h1>期中報告</h1>
+<p>由各組員在其個人的 cd2024 倉儲中, 以 LaTeX 格式分工完成文章的英文與中文翻譯並列資料, 最後在分組網站的 Release 或 downloads 區完成 2b-midbgx_report.pdf 的製作.</p>
             </section>
 
             <section class="post-info">
