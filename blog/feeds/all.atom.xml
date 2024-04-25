@@ -1,15 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>網際內容管理系統</title><link href="./" rel="alternate"></link><link href="./feeds/all.atom.xml" rel="self"></link><id>./</id><updated>2024-04-18T04:18:37+08:00</updated><entry><title>2024 Spring 課程 w8</title><link href="./2120240411.html" rel="alternate"></link><published>2024-04-11T11:00:00+08:00</published><updated>2024-04-18T04:18:37+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-04-11:./2120240411.html</id><summary type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引,錄製期中影片&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>網際內容管理系統</title><link href="./" rel="alternate"></link><link href="./feeds/all.atom.xml" rel="self"></link><id>./</id><updated>2024-04-25T05:56:52+08:00</updated><entry><title>2024 Spring 課程 w9</title><link href="./2120240418.html" rel="alternate"></link><published>2024-04-18T11:00:00+08:00</published><updated>2024-04-25T05:56:52+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-04-18:./2120240418.html</id><summary type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引,協同產品設計實習的專案實習, 透過 ChatGPT、Gemini 1.5 Pro 與 Claude 3 的協助下進行.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引,協同產品設計實習的專案實習, 透過 ChatGPT、Gemini 1.5 Pro 與 Claude 3 的協助下進行.&lt;/p&gt;
+
+
+&lt;h1&gt;使用 matplotlib 繪制 CoppeliaSim 鋼球平衡台控制過程&lt;/h1&gt;
+&lt;p&gt;以下為利用 PID 控制 CoppeliaSim &lt;a href="http://229.cycu.org/ball_beam_balancing_PID_control_coppeliasim_1d_and_2d.7z"&gt;鋼球平衡台場景&lt;/a&gt;的 ZMQ RemoteAPI Python 程式, 請利用 Python 模組將系統控制過程, 鋼球在平衡台上的 x 方向座標與 y 方向, 利用 matplotlib 畫出來. "這裡附上原本的 PID 控制程式碼"&lt;/p&gt;
+&lt;p&gt;回答:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;使用&lt;/span&gt; &lt;span class="n"&gt;matplotlib&lt;/span&gt; &lt;span class="n"&gt;繪制&lt;/span&gt; &lt;span class="n"&gt;CoppeliaSim&lt;/span&gt; &lt;span class="n"&gt;鋼球平&lt;/span&gt;&lt;span class="c1"&gt;# 導入必要的庫&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;zmq&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
+&lt;span class="c1"&gt;#... (你的 PID 控制代碼) ...&lt;/span&gt;
+
+&lt;span class="c1"&gt;#創建繪圖窗口和子圖&lt;/span&gt;
+&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subplots&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;#設置標題&lt;/span&gt;
+&lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;X 方向位置&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Y 方向位置&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;#初始化數據列表&lt;/span&gt;
+&lt;span class="n"&gt;x_data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+&lt;span class="n"&gt;y_data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+
+&lt;span class="c1"&gt;#控制循環&lt;/span&gt;
+&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="c1"&gt;# ... (你的 PID 控制邏輯) ...&lt;/span&gt;
+
+&lt;span class="c1"&gt;# 獲取鋼球的 x 和 y 坐標&lt;/span&gt;
+&lt;span class="n"&gt;_&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x_pos&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;vrep&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;simxGetObjectPosition&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;clientID&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ball_handle&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;vrep&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;simx_opmode_blocking&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;_&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y_pos&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;vrep&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;simxGetObjectPosition&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;clientID&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ball_handle&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;vrep&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;simx_opmode_blocking&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# 將數據添加到列表中&lt;/span&gt;
+&lt;span class="n"&gt;x_data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="kp"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x_pos&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="n"&gt;y_data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="kp"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y_pos&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+
+&lt;span class="c1"&gt;# 更新繪圖&lt;/span&gt;
+&lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x_data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;b-&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y_data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;r-&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# 調整坐標軸範圍&lt;/span&gt;
+&lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;relim&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;relim&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;autoscale_view&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;autoscale_view&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="c1"&gt;# 暫停以顯示圖形&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pause&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;0.01&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# 關閉連接&lt;/span&gt;
+&lt;span class="n"&gt;vrep&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;simxFinish&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;clientID&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;衡台控制過程&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;解釋:
+導入庫: 除了你的 PID 控制代碼所需的庫之外，我們還需要導入 matplotlib.pyplot 來繪制圖形。
+創建繪圖窗口和子圖: 使用 plt.subplots(2, 1) 創建一個包含兩個子圖的繪圖窗口，分別用於繪制 x 和 y 方向的位置。
+設置標題: 使用 ax.set_title() 設置每個子圖的標題。
+初始化數據列表: 創建空列表 x_data 和 y_data，用於存儲鋼球的位置數據。
+控制循環: 在你的 PID 控制邏輯中，添加以下步驟：
+獲取鋼球坐標: 使用 vrep.simxGetObjectPosition() 獲取鋼球在 x 和 y 方向的位置。
+添加數據到列表: 將獲取到的 x 和 y 坐標添加到 x_data 和 y_data 列表中。
+更新繪圖: 使用 ax.plot() 繪制 x 和 y 方向的位置數據。
+調整坐標軸範圍: 使用 ax.relim() 和 ax.autoscale_view() 調整坐標軸範圍，以適應不斷增加的數據。
+暫停顯示圖形: 使用 plt.pause(0.01) 暫停程序 0.01 秒，以便顯示更新後的圖形。
+關閉連接: 在控制循環結束後，使用 vrep.simxFinish() 關閉與 CoppeliaSim 的連接。
+注意:
+你需要將 ... (你的 PID 控制代碼) ... 替換為你實際的 PID 控制代碼。
+你需要確保已經安裝了 matplotlib 庫。可以使用 pip install matplotlib 命令進行安裝。
+其他選項:
+你可以使用 plt.xlabel() 和 plt.ylabel() 設置坐標軸標簽。
+你可以使用 plt.legend() 添加圖例。
+你可以自定義圖形的外觀，例如線條顏色、樣式和標記。&lt;/p&gt;</content><category term="w9"></category><category term="網誌編寫"></category></entry><entry><title>2024 Spring 課程 w8</title><link href="./2120240411.html" rel="alternate"></link><published>2024-04-11T11:00:00+08:00</published><updated>2024-04-18T05:56:27+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-04-11:./2120240411.html</id><summary type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引,錄製期中影片&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引,錄製期中影片&lt;/p&gt;
 
 
 &lt;h1&gt;期中影片&lt;/h1&gt;
-&lt;p&gt;錄製&lt;a href="https://www.youtube.com/watch?v=_5JEvOCj_AU"&gt;期中影片&lt;/a&gt;,介紹至目前的進度.&lt;/p&gt;</content><category term="w8"></category><category term="網誌編寫"></category></entry><entry><title>2024 Spring 課程 w7</title><link href="./2120240404.html" rel="alternate"></link><published>2024-04-04T11:00:00+08:00</published><updated>2024-04-18T04:16:59+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-04-04:./2120240404.html</id><summary type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引,清明節放假&lt;/p&gt;
+&lt;p&gt;錄製&lt;a href="https://www.youtube.com/watch?v=_5JEvOCj_AU"&gt;期中影片&lt;/a&gt;,介紹至目前的進度.&lt;/p&gt;</content><category term="w8"></category><category term="網誌編寫"></category></entry><entry><title>2024 Spring 課程 w7</title><link href="./2120240404.html" rel="alternate"></link><published>2024-04-04T11:00:00+08:00</published><updated>2024-04-18T05:56:27+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-04-04:./2120240404.html</id><summary type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引,清明節放假&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引,清明節放假&lt;/p&gt;
 
 
 &lt;h1&gt;w1~w6統整&lt;/h1&gt;
-&lt;p&gt;將w1~w6的內容統整,並檢查哪裡有錯誤的地方.&lt;/p&gt;</content><category term="w7"></category><category term="網誌編寫"></category></entry><entry><title>2024 Spring 課程 w6</title><link href="./2120240328.html" rel="alternate"></link><published>2024-03-28T11:00:00+08:00</published><updated>2024-04-11T07:49:27+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-03-28:./2120240328.html</id><summary type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引,說明協同 NX 零組件繪圖以及 CoppeliaSim 場景模擬相關檔案格式.&lt;/p&gt;
+&lt;p&gt;將w1~w6的內容統整,並檢查哪裡有錯誤的地方.&lt;/p&gt;</content><category term="w7"></category><category term="網誌編寫"></category></entry><entry><title>2024 Spring 課程 w6</title><link href="./2120240328.html" rel="alternate"></link><published>2024-03-28T11:00:00+08:00</published><updated>2024-04-18T05:56:27+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-03-28:./2120240328.html</id><summary type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引,說明協同 NX 零組件繪圖以及 CoppeliaSim 場景模擬相關檔案格式.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引,說明協同 NX 零組件繪圖以及 CoppeliaSim 場景模擬相關檔案格式.&lt;/p&gt;
 
 
@@ -32,7 +102,7 @@
 &lt;p&gt;2.下載 &lt;a href="http://229.cycu.org/SourceTree_portable.7z"&gt;Sourcetree_portable.7z&lt;/a&gt;。這需要密碼才能解壓縮。&lt;/p&gt;
 &lt;p&gt;3.下載其他工具，包括 CoppeliaSim、SciTE、Portablegit、Putty、Zoomit、Python、Solvespace和Process Explorer等。&lt;/p&gt;
 &lt;p&gt;4.下載 &lt;a href="https://mde.tw/cd2024/downloads/Solvespace_model%20_2d_for_cd2024_w6.7z"&gt;Solvespace_model_2d_for_cd2024_w6.7z&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;配置重點在於將 NX、Sourcetree 和 CoppeliaSim 的設定檔案與管理分組倉儲的權限存儲至可攜系統。並且需要從可攜系統啟動後的命令列中啟動這些應用程式。&lt;/p&gt;</content><category term="w6"></category><category term="網誌編寫"></category></entry><entry><title>2024 Spring 課程 w5</title><link href="./2120240321.html" rel="alternate"></link><published>2024-03-21T11:00:00+08:00</published><updated>2024-04-11T07:49:38+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-03-21:./2120240321.html</id><summary type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引,教學內容為先前影片整理、分組網誌的統整.&lt;/p&gt;
+&lt;p&gt;配置重點在於將 NX、Sourcetree 和 CoppeliaSim 的設定檔案與管理分組倉儲的權限存儲至可攜系統。並且需要從可攜系統啟動後的命令列中啟動這些應用程式。&lt;/p&gt;</content><category term="w6"></category><category term="網誌編寫"></category></entry><entry><title>2024 Spring 課程 w5</title><link href="./2120240321.html" rel="alternate"></link><published>2024-03-21T11:00:00+08:00</published><updated>2024-04-18T05:56:27+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-03-21:./2120240321.html</id><summary type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引,教學內容為先前影片整理、分組網誌的統整.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引,教學內容為先前影片整理、分組網誌的統整.&lt;/p&gt;
 
 
@@ -47,7 +117,7 @@
 &lt;p&gt;具體的設定操作是透過 pelicanconf.py 中的程式碼段,將子模組中 markdown 目錄中的 .md 檔案動態複製到分組倉儲中的 combined_directory,同時避開分組倉儲與組員子模組倉儲中 pages 目錄下的 .md 檔案。接著進行網誌轉檔,並將產生的網誌超文件存放到所設定的 blog 目錄中。完成設定後,執行網誌轉檔指令 pelican -s local_publishconf.py,利用 local_publishconf.py 的設定進行轉檔,同時將之前 pelicanconf.py 的設定也導入執行.&lt;/p&gt;
 &lt;p&gt;在這個過程中,每位組員必須在個別網誌 .md 檔案名稱前加上一串獨一無二的網誌 Slug 字串,例如："學號_"，以避免檔案名稱衝突。此外,組員的 Category 欄位使用學號作為標示。這樣一來,在統整轉檔時,就不會發生相同網誌文章檔案名稱衝突的錯誤,而且可以從各分組網誌的 Categories 中找到每位組員所編寫的所有網誌內容.&lt;/p&gt;
 &lt;h1&gt;利用 NX1872 協同繪製零組件&lt;/h1&gt;
-&lt;p&gt;老師提供了一個 NX 套件的目錄檔案，其中包含了 NX1872 目錄。如果將這個 NX1872 目錄存入隨身碟中，可以使用下面的 start_USB_nx1872.bat 檔案來啟動 NX 軟體.(電腦輔助設計室中 C: 磁碟槽安裝了 NX1872, D: 磁碟槽則配置了 NX2206 與 NX12，需要確保在啟動 NX 軟體時選擇正確的目錄和版本)&lt;/p&gt;</content><category term="w5"></category><category term="網誌編寫"></category></entry><entry><title>2024 Spring 課程 w4</title><link href="./2120240314.html" rel="alternate"></link><published>2024-03-14T11:00:00+08:00</published><updated>2024-04-11T07:49:45+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-03-14:./2120240314.html</id><summary type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引,在協同設計流程中,每個分組都需要明確定義任務需求和分工時序。隨著流程的進行,分組倉儲和網站的修改變得越來越複雜。為了讓各組員更清楚地看到倉儲的改版歷程以及本週的分組作業，導入 SourceTree 可以幫助團隊成員更輕鬆地管理和追蹤倉儲的修改,並更有效地協作.&lt;/p&gt;
+&lt;p&gt;老師提供了一個 NX 套件的目錄檔案，其中包含了 NX1872 目錄。如果將這個 NX1872 目錄存入隨身碟中，可以使用下面的 start_USB_nx1872.bat 檔案來啟動 NX 軟體.(電腦輔助設計室中 C: 磁碟槽安裝了 NX1872, D: 磁碟槽則配置了 NX2206 與 NX12，需要確保在啟動 NX 軟體時選擇正確的目錄和版本)&lt;/p&gt;</content><category term="w5"></category><category term="網誌編寫"></category></entry><entry><title>2024 Spring 課程 w4</title><link href="./2120240314.html" rel="alternate"></link><published>2024-03-14T11:00:00+08:00</published><updated>2024-04-18T05:56:27+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-03-14:./2120240314.html</id><summary type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引,在協同設計流程中,每個分組都需要明確定義任務需求和分工時序。隨著流程的進行,分組倉儲和網站的修改變得越來越複雜。為了讓各組員更清楚地看到倉儲的改版歷程以及本週的分組作業，導入 SourceTree 可以幫助團隊成員更輕鬆地管理和追蹤倉儲的修改,並更有效地協作.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引,在協同設計流程中,每個分組都需要明確定義任務需求和分工時序。隨著流程的進行,分組倉儲和網站的修改變得越來越複雜。為了讓各組員更清楚地看到倉儲的改版歷程以及本週的分組作業，導入 SourceTree 可以幫助團隊成員更輕鬆地管理和追蹤倉儲的修改,並更有效地協作.&lt;/p&gt;
 
 
@@ -58,7 +128,7 @@
 &lt;p&gt;3.在各組嵌入的教學影片下方,提供影片的教學重點摘要。&lt;/p&gt;
 &lt;p&gt;這樣做可以更容易理解影片的內容，並提供方便的資源供參考。&lt;/p&gt;
 &lt;h1&gt;Github 個人與分組倉儲的維護方式&lt;/h1&gt;
-&lt;p&gt;各組成員的個人倉庫名稱為「cd2024」,而期中分組倉庫位於「mdecd2024」帳號下。分組倉庫的命名格式為以「2b」開頭，後接「-」,再加上「midag」以及組別號碼。每位組員的「cd2024」個人倉庫都必須被設定為相對應分組倉庫的子模組,這樣各組員便能夠獨立管理和維護自己的課程倉庫,同時可以自行決定是否要導入分組倉庫的內容版本。可使用以下四種方法之一進行操作：Replit、Codespaces、Gitpod 或本地主機（localhost）.&lt;/p&gt;</content><category term="w4"></category><category term="網誌編寫"></category></entry><entry><title>2024 Spring 課程 w3</title><link href="./2120240307.html" rel="alternate"></link><published>2024-03-07T11:00:00+08:00</published><updated>2024-04-11T07:49:51+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-03-07:./2120240307.html</id><summary type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引,這一週的主要目標是有效地利用 Github Codespaces 與 Gitpod,並且將組員的倉儲設定為分組倉儲的子模組。同時也引入 LaTeX 轉換為 PDF 的機制,為期中分組報告的製作做好準備.&lt;/p&gt;
+&lt;p&gt;各組成員的個人倉庫名稱為「cd2024」,而期中分組倉庫位於「mdecd2024」帳號下。分組倉庫的命名格式為以「2b」開頭，後接「-」,再加上「midag」以及組別號碼。每位組員的「cd2024」個人倉庫都必須被設定為相對應分組倉庫的子模組,這樣各組員便能夠獨立管理和維護自己的課程倉庫,同時可以自行決定是否要導入分組倉庫的內容版本。可使用以下四種方法之一進行操作：Replit、Codespaces、Gitpod 或本地主機（localhost）.&lt;/p&gt;</content><category term="w4"></category><category term="網誌編寫"></category></entry><entry><title>2024 Spring 課程 w3</title><link href="./2120240307.html" rel="alternate"></link><published>2024-03-07T11:00:00+08:00</published><updated>2024-04-18T05:56:27+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-03-07:./2120240307.html</id><summary type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引,這一週的主要目標是有效地利用 Github Codespaces 與 Gitpod,並且將組員的倉儲設定為分組倉儲的子模組。同時也引入 LaTeX 轉換為 PDF 的機制,為期中分組報告的製作做好準備.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引,這一週的主要目標是有效地利用 Github Codespaces 與 Gitpod,並且將組員的倉儲設定為分組倉儲的子模組。同時也引入 LaTeX 轉換為 PDF 的機制,為期中分組報告的製作做好準備.&lt;/p&gt;
 
 
@@ -72,7 +142,7 @@
 &lt;h1&gt;有關 Codespaces 使用&lt;/h1&gt;
 &lt;p&gt;考慮到 Github Codespaces 免費帳戶每月只有 120 個小時的限制,使用者可以在需要時選擇在 Github 倉儲中編輯 Markdown 目錄中的網誌文章。當需要使用 Pelican 轉換檔案或編輯 config/content.htm 以及轉換靜態網頁內容時,才啟動 Codespaces。這樣可以最大程度地優化 Codespaces 免費核心小時的使用.&lt;/p&gt;
 &lt;h1&gt;期中報告&lt;/h1&gt;
-&lt;p&gt;由各組員在其個人的 cd2024 倉儲中, 以 LaTeX 格式分工完成文章的英文與中文翻譯並列資料, 最後在分組網站的 Release 或 downloads 區完成 2b-midbgx_report.pdf 的製作.&lt;/p&gt;</content><category term="w3"></category><category term="網誌編寫"></category></entry><entry><title>2024 Spring 課程 w2</title><link href="./2120240229.html" rel="alternate"></link><published>2024-02-29T11:00:00+08:00</published><updated>2024-04-11T07:50:00+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-02-29:./2120240229.html</id><summary type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引，將使用 Github Classroom 進行協同分組。除了 Replit 之外，我們還將引導學員使用 Github Codespaces 來維護個人或分組的網站內容.&lt;/p&gt;
+&lt;p&gt;由各組員在其個人的 cd2024 倉儲中, 以 LaTeX 格式分工完成文章的英文與中文翻譯並列資料, 最後在分組網站的 Release 或 downloads 區完成 2b-midbgx_report.pdf 的製作.&lt;/p&gt;</content><category term="w3"></category><category term="網誌編寫"></category></entry><entry><title>2024 Spring 課程 w2</title><link href="./2120240229.html" rel="alternate"></link><published>2024-02-29T11:00:00+08:00</published><updated>2024-04-18T05:56:27+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-02-29:./2120240229.html</id><summary type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引，將使用 Github Classroom 進行協同分組。除了 Replit 之外，我們還將引導學員使用 Github Codespaces 來維護個人或分組的網站內容.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引，將使用 Github Classroom 進行協同分組。除了 Replit 之外，我們還將引導學員使用 Github Codespaces 來維護個人或分組的網站內容.&lt;/p&gt;
 
 
@@ -89,7 +159,7 @@
 &lt;p&gt;推送指令：&lt;/p&gt;
 &lt;p&gt;1.加入所有變更，使用 git add .。&lt;/p&gt;
 &lt;p&gt;2.做出提交，使用 git commit -m "新增: 你要推送的內容"。&lt;/p&gt;
-&lt;p&gt;3.推送至遠端儲存庫，使用 git push。&lt;/p&gt;</content><category term="w2"></category><category term="網誌編寫"></category></entry><entry><title>2024 Spring 課程 w1</title><link href="./2120240222.html" rel="alternate"></link><published>2024-02-22T11:00:00+08:00</published><updated>2024-04-11T07:50:10+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-02-22:./2120240222.html</id><summary type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引，首先建立倉儲，再以Replit進行修改，接著在Replit建立網誌，記錄每周的進度，應用Odoo PLM管理機械設計流程.&lt;/p&gt;
+&lt;p&gt;3.推送至遠端儲存庫，使用 git push。&lt;/p&gt;</content><category term="w2"></category><category term="網誌編寫"></category></entry><entry><title>2024 Spring 課程 w1</title><link href="./2120240222.html" rel="alternate"></link><published>2024-02-22T11:00:00+08:00</published><updated>2024-04-18T05:56:27+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-02-22:./2120240222.html</id><summary type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引，首先建立倉儲，再以Replit進行修改，接著在Replit建立網誌，記錄每周的進度，應用Odoo PLM管理機械設計流程.&lt;/p&gt;
 </summary><content type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引，首先建立倉儲，再以Replit進行修改，接著在Replit建立網誌，記錄每周的進度，應用Odoo PLM管理機械設計流程.&lt;/p&gt;
 
 

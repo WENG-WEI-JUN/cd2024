@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>網際內容管理系統 - w9</title><link href="./" rel="alternate"></link><link href="./feeds/w9.atom.xml" rel="self"></link><id>./</id><updated>2024-04-25T05:56:52+08:00</updated><entry><title>2024 Spring 課程 w9</title><link href="./2120240418.html" rel="alternate"></link><published>2024-04-18T11:00:00+08:00</published><updated>2024-04-25T05:56:52+08:00</updated><author><name>kmol</name></author><id>tag:None,2024-04-18:./2120240418.html</id><summary type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引,協同產品設計實習的專案實習, 透過 ChatGPT、Gemini 1.5 Pro 與 Claude 3 的協助下進行.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;2024 Spring 網際內容管理與協同產品設計實習課程教學導引,協同產品設計實習的專案實習, 透過 ChatGPT、Gemini 1.5 Pro 與 Claude 3 的協助下進行.&lt;/p&gt;
+
+
+&lt;h1&gt;使用 matplotlib 繪制 CoppeliaSim 鋼球平衡台控制過程&lt;/h1&gt;
+&lt;p&gt;以下為利用 PID 控制 CoppeliaSim &lt;a href="http://229.cycu.org/ball_beam_balancing_PID_control_coppeliasim_1d_and_2d.7z"&gt;鋼球平衡台場景&lt;/a&gt;的 ZMQ RemoteAPI Python 程式, 請利用 Python 模組將系統控制過程, 鋼球在平衡台上的 x 方向座標與 y 方向, 利用 matplotlib 畫出來. "這裡附上原本的 PID 控制程式碼"&lt;/p&gt;
+&lt;p&gt;回答:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;使用&lt;/span&gt; &lt;span class="n"&gt;matplotlib&lt;/span&gt; &lt;span class="n"&gt;繪制&lt;/span&gt; &lt;span class="n"&gt;CoppeliaSim&lt;/span&gt; &lt;span class="n"&gt;鋼球平&lt;/span&gt;&lt;span class="c1"&gt;# 導入必要的庫&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;zmq&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
+&lt;span class="c1"&gt;#... (你的 PID 控制代碼) ...&lt;/span&gt;
+
+&lt;span class="c1"&gt;#創建繪圖窗口和子圖&lt;/span&gt;
+&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subplots&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;#設置標題&lt;/span&gt;
+&lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;X 方向位置&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Y 方向位置&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;#初始化數據列表&lt;/span&gt;
+&lt;span class="n"&gt;x_data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+&lt;span class="n"&gt;y_data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+
+&lt;span class="c1"&gt;#控制循環&lt;/span&gt;
+&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="c1"&gt;# ... (你的 PID 控制邏輯) ...&lt;/span&gt;
+
+&lt;span class="c1"&gt;# 獲取鋼球的 x 和 y 坐標&lt;/span&gt;
+&lt;span class="n"&gt;_&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x_pos&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;vrep&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;simxGetObjectPosition&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;clientID&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ball_handle&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;vrep&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;simx_opmode_blocking&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;_&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y_pos&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;vrep&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;simxGetObjectPosition&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;clientID&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ball_handle&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;vrep&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;simx_opmode_blocking&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# 將數據添加到列表中&lt;/span&gt;
+&lt;span class="n"&gt;x_data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="kp"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x_pos&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="n"&gt;y_data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="kp"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y_pos&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+
+&lt;span class="c1"&gt;# 更新繪圖&lt;/span&gt;
+&lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x_data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;b-&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y_data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;r-&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# 調整坐標軸範圍&lt;/span&gt;
+&lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;relim&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;relim&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;ax1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;autoscale_view&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;ax2&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;autoscale_view&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="c1"&gt;# 暫停以顯示圖形&lt;/span&gt;
+&lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pause&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;0.01&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;# 關閉連接&lt;/span&gt;
+&lt;span class="n"&gt;vrep&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;simxFinish&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;clientID&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;衡台控制過程&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;解釋:
+導入庫: 除了你的 PID 控制代碼所需的庫之外，我們還需要導入 matplotlib.pyplot 來繪制圖形。
+創建繪圖窗口和子圖: 使用 plt.subplots(2, 1) 創建一個包含兩個子圖的繪圖窗口，分別用於繪制 x 和 y 方向的位置。
+設置標題: 使用 ax.set_title() 設置每個子圖的標題。
+初始化數據列表: 創建空列表 x_data 和 y_data，用於存儲鋼球的位置數據。
+控制循環: 在你的 PID 控制邏輯中，添加以下步驟：
+獲取鋼球坐標: 使用 vrep.simxGetObjectPosition() 獲取鋼球在 x 和 y 方向的位置。
+添加數據到列表: 將獲取到的 x 和 y 坐標添加到 x_data 和 y_data 列表中。
+更新繪圖: 使用 ax.plot() 繪制 x 和 y 方向的位置數據。
+調整坐標軸範圍: 使用 ax.relim() 和 ax.autoscale_view() 調整坐標軸範圍，以適應不斷增加的數據。
+暫停顯示圖形: 使用 plt.pause(0.01) 暫停程序 0.01 秒，以便顯示更新後的圖形。
+關閉連接: 在控制循環結束後，使用 vrep.simxFinish() 關閉與 CoppeliaSim 的連接。
+注意:
+你需要將 ... (你的 PID 控制代碼) ... 替換為你實際的 PID 控制代碼。
+你需要確保已經安裝了 matplotlib 庫。可以使用 pip install matplotlib 命令進行安裝。
+其他選項:
+你可以使用 plt.xlabel() 和 plt.ylabel() 設置坐標軸標簽。
+你可以使用 plt.legend() 添加圖例。
+你可以自定義圖形的外觀，例如線條顏色、樣式和標記。&lt;/p&gt;</content><category term="w9"></category><category term="網誌編寫"></category></entry></feed>
