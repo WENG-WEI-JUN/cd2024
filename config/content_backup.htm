@@ -11,8 +11,124 @@
 <p><a href="https://mdecd2024.github.io/2b-midbg7/downloads/2.txt">逐字稿</a></p>
 <p><span>摘要:先到replit &gt;&gt; 點選Account &gt;&gt; Connect Github &gt;&gt; 到 Github Settings &gt;&gt; Integrations &gt;&gt; Applications&gt;&gt; 檢查是否連結成功</span></p>
 <p><span>心得:影片內容簡潔易懂，跟著做就可以將帳號連結成功。</span></p>
+<h1><span>Gemini 1.5 Pro(w8)</span></h1>
+<p><span>以下為利用 PID 控制 CoppeliaSim <a href="http://229.cycu.org/ball_beam_balancing_PID_control_coppeliasim_1d_and_2d.7z">鋼球平衡台場景</a>的 ZMQ RemoteAPI Python 程式, 請利用 Python 模組將系統控制過程, 鋼球在平衡台上的 x 方向座標與 y 方向, 利用 matplotlib 畫出來. "這裡附上原本的 PID 控制程式碼"</span></p>
+<p><span>Gemini 1.5 Pro回答:</span></p>
+<div _ngcontent-ng-c1382703004="" class="code-block-decoration header gmat-subtitle-1 ng-star-inserted"><span _ngcontent-ng-c1382703004="">Python</span></div>
+<div _ngcontent-ng-c1382703004="" class="code-block-decoration header gmat-subtitle-1 ng-star-inserted"></div>
+<div _ngcontent-ng-c1382703004="" class="code-block-internal-container">
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import zmq
+import matplotlib.pyplot as plt
+import time
+
+# ZMQ connection parameters
+context = zmq.Context()
+socket = context.socket(zmq.REQ)
+socket.connect("tcp://127.0.0.1:5555")
+
+# PID control parameters
+kp = 1.0
+ki = 0.1
+kd = 0.0
+
+# Ball position and control signal lists
+x_positions = []
+y_positions = []
+control_signals = []
+
+# Simulation parameters
+simulation_duration = 10.0  # Simulation duration in seconds
+sampling_time = 0.01  # Sampling time in seconds
+tolerance = 0.01  # Position error tolerance for termination
+
+# Initialize variables
+previous_error = 0.0
+start_time = time.time()
+
+# Control loop
+while time.time() - start_time &lt; simulation_duration:
+    # Request ball position
+    socket.send(b"get ball position")
+    response = socket.recv()
+
+    # Parse ball position
+    x_position, y_position = response.split(b",")
+    x_position = float(x_position)
+    y_position = float(y_position)
+
+    # Calculate position error
+    error = 0.0 - x_position
+
+    # Calculate control signal using PID controller
+    u = kp * error + ki * error + kd * (error - previous_error)
+    previous_error = error
+
+    # Limit control signal
+    u = min(max(u, -10.0), 10.0)
+
+    # Send control signal
+    socket.send(b"set ball force %.2f" % u)
+
+    # Record ball position and control signal
+    x_positions.append(x_position)
+    y_positions.append(y_position)
+    control_signals.append(u)
+
+    # Check termination condition
+    if abs(error) &lt; tolerance:
+        break
+
+    # Wait for next sampling time
+    time.sleep(sampling_time)
+
+# Close ZMQ connection
+socket.close()
+context.destroy()
+
+# Plot ball position and control signal
+plt.figure(figsize=(12, 6))
+
+plt.subplot(2, 1, 1)
+plt.plot(x_positions, label="X Position")
+plt.plot(y_positions, label="Y Position")
+plt.legend()
+plt.xlabel("Time (s)")
+plt.ylabel("Position (m)")
+
+plt.subplot(2, 1, 2)
+plt.plot(control_signals, label="Control Signal")
+plt.legend()
+plt.xlabel("Time (s)")
+plt.ylabel("Force (N)")
+
+plt.tight_layout()
+plt.show()
+</pre>
+<pre _ngcontent-ng-c1382703004=""></pre>
+</div>
+<h1><span>w10</span></h1>
+<p>任務一:</p>
+<p><a href="https://github.com/WENG-WEI-JUN/cd2024">倉儲連結</a></p>
+<p><a href="https://weng-wei-jun.github.io/cd2024/content/index.html">網站連結</a></p>
+<p><a href="https://github.com/mdecd2024/2b-midbg7">分組倉儲連結</a></p>
+<p>任務二:</p>
+<p>文章一 : Construction and theoretical study of a ball balancing platform (構建一個球體平衡平台涉及到平台本身的物理結構建造以及用於維持球體平衡的控制算法的理論研究)</p>
+<p>探討在實施自動控制理論以穩定動態系統時所遇到的限制。它關注於球平衡平台的結構和理論研究，並通過實際裝置來展示自動控制理論在穩定動態系統中的局限性。為了進行比較，需要設計一個滿足系統需求的令人滿意的控制器。在設備和控制方面，引入了比例積分導數控制器來平衡平台上的球體系統。此外，還允許分析以確定穩定自然不穩定或半穩定系統的限制。最後，建立了球體平衡平台的理論模型，並與實際搭建的平台進行了比較，分析了理論與實際結果之間的差異，並探討了控制理論與系統實施所面臨的挑戰。</p>
+<p>文章二 : A real time control system for balancing a ball on a platform with FPGA parallel implementation (用於在平臺上平衡球的即時控制系統，具有FPGA並行實現)</p>
+<p>在一個FPGA晶片上，開發了兩個並行的PID控制器，用於獨立控制一個物件的兩個參數。確保了PID控制器對控制物件的輪廓計算進行並行處理，調節器的輸出已經被歸一化。透過自然類比，提高了在平台上調節球位置的精度。這種設計的控制器可用於即時控制具有許多受控參數的高速物體。</p>
+<p>文章三 : Simulation and Experimental Study of Ball Position Control at Biaxial Platform using State Space Approach (基於狀態空間方法的雙軸平臺球位控制模擬與實驗研究)</p>
+<p>本研究詳細設計並比較了三種控制結構，以實現自動穩定球在平板上的位置和球的軌跡跟蹤。這三種結構分別是PD控制器、狀態空間反饋和狀態空間觀測器。所有三種方法都經過了設計和實際比較。這些結構共同的特點是它們的控制器參數計算方法。此外，本文還包括了通過牛頓方法推導的平板上球的數學模型和直流電機位置迴路控制。</p>
+<p>文章四：Design and Implementation a Ball Balancing System for Control Theory Course（控制理論課程的球平衡系統設計與實現）</p>
+<p>利用微控制器和相關控制算法，開發了一個球平衡系統，以保持球在橫樑上的平衡，並透過即時感測反饋來調整橫樑的角度。製作了三個原型並進行了比較，特別是在合理性和成本方面。整個系統設計包括一個伺服電機、一個距離感測器、一個微控制器板和一個機械平臺，這樣的設計使得系統易於實現。通過微控制器程式設計來理解和實現控制算法，對於對MATLAB了解不多的學生也是適用的。開發了介面程式，以在MATLAB中繪製即時位置曲線。這個簡化的系統不僅作為理論知識和實踐技能之間的橋樑，同時也適用於更複雜的系統。</p>
+<p>文章五: Ball on the plate balancing control system (板上球平衡控制系統)</p>
+<p>平衡問題一直是持續的研究挑戰，在許多領域都有應用，從教育到交通。二自由度球平衡實驗室試驗台是了解控制系統的重要設備之一。本文主要介紹了用於板上平衡球的機械設計。通過電阻式觸摸屏獲取球體位置數據，並使用步進電機和位置傳感器來控制平台的傾斜角度。設計基於AVR微控制器的雙環下位控制系統，利用PID控制器來維持球體的平衡。</p>
+<p>文章六 : 2D Ball Balancer Control using QUARC (使用 QUARC 的 2D 球平衡器控制)</p>
+<p>利用QUARC軟體，我們設計並實現了對二維平台上球體位置的控制系統。我們設計了PD和PID控制器，並研究了設定點權重和積分器抗飽和等控制技術。透過攝像頭讀取球體位置，我們進行了校準和轉換，以確保控制系統的準確性和穩定性。</p>
 <h1>NX(w12)</h1>
 <p>第三個圖:<a href="https://drive.google.com/file/d/1twwuq4sCJIbSQZoM04rytpogsuhnNOcU/view?usp=sharing">錄影</a>,<a href="https://drive.google.com/file/d/1pjyP21mZVRWnvAgjuVEGAUeSXo1oM0W4/view?usp=sharing">零件</a></p>
+<p>零件尺寸:</p>
+<p><img alt="" height="450" src="/images/1.png" width="800"/></p>
+<p><img alt="" height="450" src="/images/2.png" width="800"/> <img alt="" height="450" src="/images/3.png" width="800"/> <img alt="" height="450" src="/images/4.png" width="800"/> <img alt="" height="450" src="/images/5.png" width="800"/></p>
 <h1>cmsimde</h1>
 <p><span style="background-color: #ccffcc;">SMap</span> - SiteMap - 依照階次列出網站的所有頁面.</p>
 <p><span style="background-color: #ccffcc;">EditA</span> - Edit All page - 將所有頁面放入編輯模式中, 主要用來處理頁面搬遷, 刪除或決定衝突頁面內容版本.</p>

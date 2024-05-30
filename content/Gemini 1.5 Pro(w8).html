@@ -142,9 +142,102 @@ img.add_border {
           </div>
 
         </header>
-    <div id="tipue_search_content">About << <a href='About.html'>Previous</a> <a href='影片上字幕(w5).html'>Next</a> >> 影片上字幕(w5)<br /><h1>翻譯文章(w3)</h1>
-<p><a href="./../downloads/41123221-翁帷竣-P1~P9.pdf">P1~P9 (目錄)</a></p>
-<br />About << <a href='About.html'>Previous</a> <a href='影片上字幕(w5).html'>Next</a> >> 影片上字幕(w5)</div>
+    <div id="tipue_search_content">影片上字幕(w5) << <a href='影片上字幕(w5).html'>Previous</a> <a href='論文摘要(w10).html'>Next</a> >> 論文摘要(w10)<br /><h1>Gemini 1.5 Pro(w8)</h1>
+<p><span>以下為利用 PID 控制 CoppeliaSim <a href="http://229.cycu.org/ball_beam_balancing_PID_control_coppeliasim_1d_and_2d.7z">鋼球平衡台場景</a>的 ZMQ RemoteAPI Python 程式, 請利用 Python 模組將系統控制過程, 鋼球在平衡台上的 x 方向座標與 y 方向, 利用 matplotlib 畫出來. "這裡附上原本的 PID 控制程式碼"</span></p>
+<p><span>Gemini 1.5 Pro回答:</span></p>
+<div _ngcontent-ng-c1382703004="" class="code-block-decoration header gmat-subtitle-1 ng-star-inserted"><span _ngcontent-ng-c1382703004="">Python</span></div>
+<div _ngcontent-ng-c1382703004="" class="code-block-decoration header gmat-subtitle-1 ng-star-inserted"></div>
+<div _ngcontent-ng-c1382703004="" class="code-block-internal-container">
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">import zmq
+import matplotlib.pyplot as plt
+import time
+
+# ZMQ connection parameters
+context = zmq.Context()
+socket = context.socket(zmq.REQ)
+socket.connect("tcp://127.0.0.1:5555")
+
+# PID control parameters
+kp = 1.0
+ki = 0.1
+kd = 0.0
+
+# Ball position and control signal lists
+x_positions = []
+y_positions = []
+control_signals = []
+
+# Simulation parameters
+simulation_duration = 10.0  # Simulation duration in seconds
+sampling_time = 0.01  # Sampling time in seconds
+tolerance = 0.01  # Position error tolerance for termination
+
+# Initialize variables
+previous_error = 0.0
+start_time = time.time()
+
+# Control loop
+while time.time() - start_time &lt; simulation_duration:
+    # Request ball position
+    socket.send(b"get ball position")
+    response = socket.recv()
+
+    # Parse ball position
+    x_position, y_position = response.split(b",")
+    x_position = float(x_position)
+    y_position = float(y_position)
+
+    # Calculate position error
+    error = 0.0 - x_position
+
+    # Calculate control signal using PID controller
+    u = kp * error + ki * error + kd * (error - previous_error)
+    previous_error = error
+
+    # Limit control signal
+    u = min(max(u, -10.0), 10.0)
+
+    # Send control signal
+    socket.send(b"set ball force %.2f" % u)
+
+    # Record ball position and control signal
+    x_positions.append(x_position)
+    y_positions.append(y_position)
+    control_signals.append(u)
+
+    # Check termination condition
+    if abs(error) &lt; tolerance:
+        break
+
+    # Wait for next sampling time
+    time.sleep(sampling_time)
+
+# Close ZMQ connection
+socket.close()
+context.destroy()
+
+# Plot ball position and control signal
+plt.figure(figsize=(12, 6))
+
+plt.subplot(2, 1, 1)
+plt.plot(x_positions, label="X Position")
+plt.plot(y_positions, label="Y Position")
+plt.legend()
+plt.xlabel("Time (s)")
+plt.ylabel("Position (m)")
+
+plt.subplot(2, 1, 2)
+plt.plot(control_signals, label="Control Signal")
+plt.legend()
+plt.xlabel("Time (s)")
+plt.ylabel("Force (N)")
+
+plt.tight_layout()
+plt.show()
+</pre>
+<pre _ngcontent-ng-c1382703004=""></pre>
+</div>
+<br />影片上字幕(w5) << <a href='影片上字幕(w5).html'>Previous</a> <a href='論文摘要(w10).html'>Next</a> >> 論文摘要(w10)</div>
 
     <!-- footer -->
       <div class="container">
